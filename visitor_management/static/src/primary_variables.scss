@@ -1,0 +1,8 @@
+$o-reception-font-size-base: 1rem !default;
+$o-reception-font-size-root-lg: $o-reception-font-size-base * 1.25 !default;
+$o-reception-font-size-root-xxl: $o-reception-font-size-base * 1.35 !default;
+$o-reception-font-size-root-uw: $o-reception-font-size-base * 2 !default;
+$o-reception-font-size-root-4k: $o-reception-font-size-base * 3 !default;
+
+// replicate variable from web_enterprise/primary_variables.scss
+$o-white: #FFF !default;

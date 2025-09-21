@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="reception_visitor_report_view_graph" model="ir.ui.view">
+        <field name="name">reception.visitor.report.graph</field>
+        <field name="model">reception.visitor</field>
+        <field name="arch" type="xml">
+            <graph string="Visitors" sample="1">
+                <field name="duration" invisible="1"/>
+                <field name="check_in" interval="day"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="reception_station_report_view_graph" model="ir.ui.view">
+        <field name="name">reception.station.report.graph</field>
+        <field name="model">reception.visitor</field>
+        <field name="arch" type="xml">
+            <graph string="Visitors" sample="1">
+                <field name="duration" invisible="1"/>
+                <field name="check_in" interval="day"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="action_reception_station_report" model="ir.actions.act_window">
+        <field name="name">Statistics</field>
+        <field name="res_model">reception.visitor</field>
+        <field name="view_mode">graph</field>
+        <field name="domain">[("station_id", "=", active_id)]</field>
+        <field name="view_id" ref="reception_station_report_view_graph"/>
+    </record>
+
+    <record id="action_reception_visitors_report" model="ir.actions.act_window">
+        <field name="name">Visitors</field>
+        <field name="res_model">reception.visitor</field>
+        <field name="view_mode">graph</field>
+        <field name="view_id" ref="reception_visitor_report_view_graph"/>
+    </record>
+
+</odoo>

@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<odoo>
+    <menuitem
+        id="reception_menu_root"
+        name="Reception"
+        web_icon="reception,static/description/icon.png"
+        sequence="20"/>
+
+    <menuitem
+        id="reception_menu_stations"
+        name="Stations"
+        parent="reception_menu_root"
+        action="action_reception_reception"
+        sequence="1"/>
+
+    <menuitem
+        id="reception_menu_visitors"
+        name="Visitors"
+        parent="reception_menu_root"
+        action="action_reception_visitor"
+        sequence="2"/>
+
+    <menuitem
+        id="reception_menu_report"
+        name="Reporting"
+        parent="reception_menu_root"
+        groups="visitor_management.reception_group_user"
+        sequence="3"/>
+
+    <menuitem
+        id="reception_menu_report_visitors"
+        name="Visitors"
+        parent="reception_menu_report"
+        action="action_reception_visitors_report"
+        sequence="1"/>
+
+
+    <menuitem
+        id="reception_menu_config"
+        name="Configuration"
+        parent="reception_menu_root"
+        groups="visitor_management.reception_group_administrator"
+        sequence="4"/>
+
+    <menuitem
+        id="reception_menu_stations_config"
+        name="Stations"
+        parent="reception_menu_config"
+        action="action_reception_reception_list"
+        sequence="1"/>
+
+
+</odoo>

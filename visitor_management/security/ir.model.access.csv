@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_reception_reception_admin,reception.reception,model_reception_reception,visitor_management.reception_group_administrator,1,1,1,1
+access_reception_visitor_admin,reception.visitor,model_reception_visitor,visitor_management.reception_group_administrator,1,1,1,1
+
+access_reception_reception_group_user,reception.reception,model_reception_reception,visitor_management.reception_group_user,1,1,0,0
+access_reception_visitor_group_user,reception.visitor,model_reception_visitor,visitor_management.reception_group_user,1,1,1,0
