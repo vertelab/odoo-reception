@@ -31,6 +31,7 @@ class ReceptionVisitor(models.Model):
     state = fields.Selection(string='Status',selection=[('planned', 'Planned'),('checked_in', 'Checked-In'),('checked_out', 'Checked-Out'),('canceled', 'Cancelled')],default='planned')
     station_id = fields.Many2one('reception.reception', required=True)
     visitor_properties = fields.Properties('Properties', definition='station_id.visitor_properties_definition', copy=True)
+    
     def write(self, vals):
         if vals.get('state') == 'checked_in':
             vals['check_in'] = fields.Datetime.now()

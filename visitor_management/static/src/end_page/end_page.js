@@ -8,7 +8,6 @@ export class EndPage extends Component {
     static template = "reception.EndPage";
     static props = {
         hostData: { optional: true },
-        isDrinkSelected: Boolean,
         isMobile: Boolean,
         onClose: Function,
         plannedVisitorData: { optional: true },

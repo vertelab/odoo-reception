@@ -9,7 +9,6 @@ export class RegisterPage extends Component {
     static props = {
         createVisitor: Function,
         hostData: { optional: true },
-        isDrinkVisible: Boolean,
         isMobile: Boolean,
         onClose: Function,
         plannedVisitorData: { optional: true },
@@ -49,4 +48,4 @@ export class RegisterPage extends Component {
     }
 }
 
-registry.category("reception_screens").add("RegisterPage", RegisterPage);
+registry.category("visitor_screens").add("RegisterPage", RegisterPage);

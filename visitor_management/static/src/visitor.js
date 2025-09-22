@@ -2,14 +2,13 @@
 
 import { rpc } from "@web/core/network/rpc";
 import { registry } from "@web/core/registry";
-import { VisitorForm } from "@visitor/visitor_form/visitor_form";
-import { WelcomePage } from "@visitor/welcome_page/welcome_page";
-import { RegisterPage } from "@visitor/register_page/register_page";
-import { DrinkPage } from "@visitor/drink_page/drink_page";
-import { Navbar } from "@visitor/navbar/navbar";
-import { HostPage } from "@visitor/host_page/host_page";
-import { EndPage } from "@visitor/end_page/end_page";
-import { QuickCheckIn } from "@visitor/quick_check_in/quick_check_in";
+import { VisitorForm } from "@visitor_management/visitor_form/visitor_form";
+import { WelcomePage } from "@visitor_management/welcome_page/welcome_page";
+import { RegisterPage } from "@visitor_management/register_page/register_page";
+import { Navbar } from "@visitor_management/navbar/navbar";
+import { HostPage } from "@visitor_management/host_page/host_page";
+import { EndPage } from "@visitor_management/end_page/end_page";
+import { QuickCheckIn } from "@visitor_management/quick_check_in/quick_check_in";
 
 import { Component, useState, onWillStart, markup } from "@odoo/owl";
 
@@ -22,7 +21,6 @@ export class visitor extends Component {
         QuickCheckIn,
         HostPage,
         RegisterPage,
-        DrinkPage,
         EndPage,
     };
     static props = {
@@ -117,7 +115,7 @@ export class visitor extends Component {
         this.hostData = null;
         this.visitorData = null;
         this.plannedVisitorData = null;
-        this.isDrinkSelected = false;
+
     }
 
     /**
@@ -158,12 +156,6 @@ export class visitor extends Component {
         };
     }
 
-    /**
-     * @param {boolean} boolean
-     */
-    setDrink(boolean) {
-        this.isDrinkSelected = boolean;
-    }
 
     // -------------------------------------------------------------------------
     // Getters
@@ -212,28 +204,14 @@ export class visitor extends Component {
                 createVisitor: this.createVisitor.bind(this),
                 theme: this.station.theme,
                 isMobile: this.props.isMobile,
-                isDrinkVisible: this.visitorData.drinks?.length ? true : false,
                 plannedVisitorData: this.plannedVisitorData,
                 hostData: this.hostData,
-            };
-        } else if (this.state.currentComponent === DrinkPage) {
-            props = {
-                showScreen: this.showScreen.bind(this),
-                setDrink: this.setDrink.bind(this),
-                theme: this.station.theme,
-                drinkInfo: this.visitorData.drinks,
-                stationId: this.props.id,
-                token: this.token,
-                visitorId: this.plannedVisitorData
-                    ? this.plannedVisitorData.plannedVisitorId
-                    : this.visitorId,
             };
         } else if (this.state.currentComponent === EndPage) {
             props = {
                 showScreen: this.showScreen.bind(this),
                 onClose: this.onClose.bind(this),
                 isMobile: this.props.isMobile,
-                isDrinkSelected: this.isDrinkSelected,
                 theme: this.station.theme,
                 plannedVisitorData: this.plannedVisitorData,
                 hostData: this.hostData,

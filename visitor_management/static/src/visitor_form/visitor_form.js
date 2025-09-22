@@ -22,6 +22,7 @@ export class VisitorForm extends Component {
     };
 
     setup() {
+        console.log('setting up VisitorForm')
         this.inputNameRef = useRef("inputName");
         this.inputPhoneRef = useRef("inputPhone");
         this.inputEmailRef = useRef("inputEmail");
@@ -52,4 +53,4 @@ export class VisitorForm extends Component {
     }
 }
 
-registry.category("reception_screens").add("VisitorForm", VisitorForm);
+registry.category("visitor_screens").add("VisitorForm", VisitorForm);

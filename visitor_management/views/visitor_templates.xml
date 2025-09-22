@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+        
     <template id="reception" name="Reception">
         <t t-call="web.frontend_layout">
             <t t-set="head">
-                <t t-call-assets="visitor_managent.assets_visitor" lazy_load="True"/>
+                <t t-call-assets="visitor_management.assets_visitor" lazy_load="True"/>
                 <script type="text/javascript">
                     odoo.__session_info__ = <t t-out="json.dumps({
                         'user_context': {'lang': current_lang},
@@ -15,11 +16,12 @@
             <t t-set="no_header" t-value="1"/>
             <t t-set="no_footer" t-value="1"/>
             <t t-set="no_livechat" t-value="1"/>
-            <owl-component name="reception" t-att-props="json.dumps({
+            <owl-component name="visitor" t-att-props="json.dumps({
                 'id': reception.id,
                 'isMobile': is_mobile,
                 'currentLang': current_lang,
             })"/>
         </t>
+       
     </template>
 </odoo>

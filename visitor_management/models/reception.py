@@ -102,17 +102,17 @@ class reception(models.Model):
     def get_kiosk_url(self):
         return self.kiosk_url
 
-    def _get_reception_field(self):
+    def _get_visitor_field(self):
         return ['description', 'host_selection', 'self_check_in', 'theme',
           'ask_email', 'ask_phone', 'ask_company', 'authenticate_guest']
 
-    def _get_reception_data(self):
+    def _get_visitor_data(self):
         """ Returns the data to the frontend. """
         self.ensure_one()
         data = {
             'company': {'name': self.company_id.name, 'id': self.company_id.id},
             'langs': [{'code': lang[0], 'name': lang[1]} for lang in self.env['res.lang'].get_installed()],
-            'station': self.search_read([('id', '=', self.id)], self._get_reception_field()),
+            'station': self.search_read([('id', '=', self.id)], self._get_visitor_field()),
         }
         return data
 

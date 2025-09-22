@@ -159,7 +159,7 @@
 
     <record id="action_reception_reception" model="ir.actions.act_window">
         <field name="name">Stations</field>
-        <field name="path">receptiopn</field>
+        <field name="path">reception</field>
         <field name="res_model">reception.reception</field>
         <field name="view_mode">kanban,form,list</field>
         <field name="help" type="html">

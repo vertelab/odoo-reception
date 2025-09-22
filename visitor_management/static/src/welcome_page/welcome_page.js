@@ -63,4 +63,4 @@ export class WelcomePage extends Component {
     }
 }
 
-registry.category("reception_screens").add("WelcomePage", WelcomePage);
+registry.category("visitor_screens").add("WelcomePage", WelcomePage);
