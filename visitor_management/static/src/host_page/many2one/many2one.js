@@ -51,7 +51,7 @@ export class Many2One extends Component {
 
     /* This method triggers when a user types in the input field */
     search(name) {
-        return rpc(`/reception/${this.props.stationId}/${this.props.token}/get_hosts`, {
+        return rpc(`/visitor/${this.props.stationId}/${this.props.token}/get_hosts`, {
             name: name,
         });
     }

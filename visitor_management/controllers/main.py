@@ -60,14 +60,14 @@ class reception(http.Controller):
             return request.not_found()
         return (reception._get_tmp_code(), fields.Datetime.to_string(fields.Datetime.now()))
 
-    @http.route('/visitor/<int:reception_id>/<string:token>/get_visitor_data', type='json', auth='public')
-    def get_visitor_data(self, reception_id, token):
+    @http.route('/visitor/<int:reception_id>/<string:token>/get_reception_data', type='json', auth='public')
+    def get_reception_data(self, reception_id, token):
         reception = request.env['reception.reception'].sudo().browse(reception_id)
-        _logger.warning(f"get_visitor_data {reception_id}")
-        _logger.warning(f"get_visitor_data {reception._get_visitor_data()}")
+        _logger.warning(f"get_reception_data {reception_id}")
+        _logger.warning(f"get_reception_data {reception._get_reception_data()}")
         if not reception.exists() or not self._verify_token(reception, token):
             return request.not_found()
-        return reception._get_visitor_data()
+        return reception._get_reception_data()
 
     @http.route('/visitor/<int:reception_id>/<string:token>/get_planned_visitors', type='json', auth='public')
     def get_planned_visitors(self, reception_id, token):

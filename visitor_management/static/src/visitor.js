@@ -52,8 +52,8 @@ export class visitor extends Component {
     }
 
     async onWillStart() {
-        this.visitorData = await rpc(`${this.visitorUrl}/get_visitor_data`);
-        this.station = this.visitorData.station[0];
+        this.receptionData = await rpc(`${this.visitorUrl}/get_reception_data`);
+        this.station = this.receptionData.station[0];
     }
 
     /* This method updates the plannedVisitors */
@@ -169,9 +169,9 @@ export class visitor extends Component {
                 resetData: this.resetData.bind(this),
                 onChangeLang: this.onChangeLang.bind(this),
                 token: this.token,
-                companyName: this.visitorData.company.name,
+                companyName: this.receptionData.company.name,
                 stationInfo: this.station,
-                langs: this.visitorData.langs.length > 1 ? this.visitorData.langs : false,
+                langs: this.receptionData.langs.length > 1 ? this.receptionData.langs : false,
                 currentLang: this.props.currentLang,
             };
         } else if (this.state.currentComponent === VisitorForm) {
@@ -186,7 +186,7 @@ export class visitor extends Component {
                 currentComponent: this.state.currentComponent.name,
                 isPlannedVisitors: this.state.plannedVisitors.length ? true : false,
                 stationInfo: this.station,
-                langs: this.visitorData.langs.length > 1 ? this.visitorData.langs : false,
+                langs: this.receptionData.langs.length > 1 ? this.receptionData.langs : false,
                 currentLang: this.props.currentLang,
                 theme: this.station.theme,
             };
@@ -224,12 +224,12 @@ export class visitor extends Component {
         return {
             showScreen: this.showScreen.bind(this),
             currentComponent: this.state.currentComponent.name,
-            companyInfo: this.visitorData.company,
+            companyInfo: this.receptionData.company,
             isMobile: this.props.isMobile,
             isPlannedVisitors: this.state.plannedVisitors.length ? true : false,
             theme: this.station.theme,
             onChangeLang: this.onChangeLang.bind(this),
-            langs: this.visitorData.langs.length > 1 ? this.visitorData.langs : false,
+            langs: this.receptionData.langs.length > 1 ? this.receptionData.langs : false,
             currentLang: this.props.currentLang,
         };
     }

@@ -106,7 +106,7 @@ class reception(models.Model):
         return ['description', 'host_selection', 'self_check_in', 'theme',
           'ask_email', 'ask_phone', 'ask_company', 'authenticate_guest']
 
-    def _get_visitor_data(self):
+    def _get_reception_data(self):
         """ Returns the data to the frontend. """
         self.ensure_one()
         data = {

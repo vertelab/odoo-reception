@@ -22,7 +22,7 @@ export class QuickCheckIn extends Component {
      */
     async _onClick(visitor) {
         await rpc(
-            `/reception/${this.props.stationId}/${this.props.token}/prepare_visitor_data`,
+            `/visitor/${this.props.stationId}/${this.props.token}/prepare_visitor_data`,
             {
                 visitor_id: visitor.id,
             }
