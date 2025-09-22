@@ -47,4 +47,4 @@ export class HostPage extends Component {
     }
 }
 
-registry.category("reception_screens").add("HostPage", HostPage);
+registry.category("visitor_screens").add("HostPage", HostPage);
