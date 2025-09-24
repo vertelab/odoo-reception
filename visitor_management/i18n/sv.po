@@ -1,0 +1,933 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* visitor_management
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0-20250923\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-09-24 07:01+0000\n"
+"PO-Revision-Date: 2025-09-24 09:19+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: sv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.4.2\n"
+
+#. module: visitor_management
+#. odoo-python
+#: code:addons/visitor_management/models/reception_visitor.py:0
+msgid "%(station)s Check-In: %(visitor)s"
+msgstr "%(station)s Checka in: %(visitor)s"
+
+#. module: visitor_management
+#. odoo-python
+#: code:addons/visitor_management/models/reception_visitor.py:0
+msgid "%(station)s Check-In: %(visitor)s to meet %(host)s"
+msgstr "%(station)s Check-in: %(visitor)s möter %(host)s"
+
+#. module: visitor_management
+#. odoo-python
+#: code:addons/visitor_management/models/reception_visitor.py:0
+msgid "%s just checked-in."
+msgstr "%s checkade just in."
+
+#. module: visitor_management
+#: model:ir.actions.report,print_report_name:visitor_management.reception_visitor_print_badge
+msgid "'Badge - %s' % (object.name).replace('/', '')"
+msgstr "'Badge - %s' % (object.name).replace('/', '')"
+
+#. module: visitor_management
+#: model_terms:ir.ui.view,arch_db:visitor_management.print_visitor_badge
+msgid "22 Oct 24 14:20:10"
+msgstr "22 oktober 24 14:20:10"
+
+#. module: visitor_management
+#: model:mail.template,body_html:visitor_management.reception_mail_template
+msgid ""
+"<div>\n"
+"                    <p>Hello <t t-if=\"ctx.get('host_name')\"><t t-"
+"out=\"ctx.get('host_name')\"/>, </t><b><t t-out=\"object.name\"/></b> <t t-"
+"if=\"object.phone\">(<t t-out=\"object.phone\"/>)</t><t t-if=\"object."
+"company\">, coming from <t t-out=\"object.company\"/></t> is asking to meet "
+"you at <t t-out=\"object.station_id.name\"/>. Please let them know you'll "
+"be there shortly.\n"
+"                    </p>\n"
+"                </div>\n"
+"            "
+msgstr ""
+"<div>\n"
+"                    <p>Hej <t t-if=\"ctx.get('host_name')\"><t t-out=\"ctx."
+"get('host_name')\"/>, </t><b><t t-out=\"object.name\"/></b> <t t-"
+"if=\"object.phone\">(<t t-out=\"object.phone\"/>)</t><t t-if=\"object."
+"company\">, som kommer från <t t-out=\"object.company\"/></t> ber att få "
+"träffa dig på <t t-out=\"object.station_id.name\"/>. Meddela dem att du "
+"snart är där.\n"
+"                    </p>\n"
+"                </div>\n"
+"            "
+
+#. module: visitor_management
+#: model_terms:web_tour.tour,rainbow_man_message:visitor_management.frontdesk_tour
+msgid ""
+"<span><b>Congratulations!!!</b> You have created your first visitor.\n"
+"        </span>"
+msgstr ""
+"<span><b>Grattis!!!</b> Du har skapat din första besökare.\n"
+"        </span> "
+
+#. module: visitor_management
+#: model_terms:ir.ui.view,arch_db:visitor_management.print_visitor_badge
+msgid "<strong>Visiting:</strong>"
+msgstr "<strong>Besök:</strong>"
+
+#. module: visitor_management
+#: model:ir.model.fields,field_description:visitor_management.field_reception_reception__active
+#: model:ir.model.fields,field_description:visitor_management.field_reception_visitor__active
+msgid "Active"
+msgstr "Aktiv"
+
+#. module: visitor_management
+#: model:ir.actions.client,name:visitor_management.reception_visitor_action_configure_properties_field
+msgid "Add Properties"
+msgstr "Lägg till egenskaper"
+
+#. module: visitor_management
+#: model:res.groups,name:visitor_management.reception_group_administrator
+msgid "Administrator"
+msgstr "Administratör"
+
+#. module: visitor_management
+#: model_terms:ir.ui.view,arch_db:visitor_management.reception_reception_view_form
+msgid "Allows the visitor to pick the host of the meeting from the list"
+msgstr "Gör det möjligt för besökaren att välja värd för mötet från listan"
+
+#. module: visitor_management
+#: model_terms:ir.ui.view,arch_db:visitor_management.reception_reception_view_form
+#: model_terms:ir.ui.view,arch_db:visitor_management.reception_reception_view_search
+#: model_terms:ir.ui.view,arch_db:visitor_management.reception_visitor_view_form
+#: model_terms:ir.ui.view,arch_db:visitor_management.reception_visitor_view_search
+msgid "Archived"
+msgstr "Arkiverad"
+
+#. module: visitor_management
+#. odoo-javascript
+#: code:addons/visitor_management/static/src/quick_check_in/quick_check_in.xml:0
+msgid "Are you one of these people?"
+msgstr "Är du en av dessa människor?"
+
+#. module: visitor_management
+#: model:ir.model.fields,field_description:visitor_management.field_reception_reception__authenticate_guest
+msgid "Authenticate Guest"
+msgstr "Autentisera gäst"
+
+#. module: visitor_management
+#. odoo-javascript
+#: code:addons/visitor_management/static/src/navbar/navbar.xml:0
+msgid "Back"
+msgstr "Tillbaka"
+
+#. module: visitor_management
+#: model_terms:ir.ui.view,arch_db:visitor_management.reception_reception_view_search
+msgid "By Responsible"
+msgstr "Av Ansvarig"
+
+#. module: visitor_management
+#: model_terms:ir.ui.view,arch_db:visitor_management.reception_visitor_view_form
+msgid "Cancel"
+msgstr "Avbryt"
+
+#. module: visitor_management
+#: model:ir.model.fields.selection,name:visitor_management.selection__reception_visitor__state__canceled
+msgid "Cancelled"
+msgstr "Avbruten"
+
+#. module: visitor_management
+#. odoo-javascript
+#: code:addons/visitor_management/static/src/visitor_form/visitor_form.xml:0
+#: model:ir.model.fields,field_description:visitor_management.field_reception_visitor__check_in
+msgid "Check In"
+msgstr "Checka in"
+
+#. module: visitor_management
+#: model:ir.model.fields,field_description:visitor_management.field_reception_visitor__check_out
+msgid "Check Out"
+msgstr "Checka ut"
+
+#. module: visitor_management
+#. odoo-javascript
+#: code:addons/visitor_management/static/src/welcome_page/welcome_page.xml:0
+#: model_terms:ir.ui.view,arch_db:visitor_management.reception_visitor_view_form
+#: model_terms:ir.ui.view,arch_db:visitor_management.reception_visitor_view_list
+msgid "Check in"
+msgstr "Checka in"
+
+#. module: visitor_management
+#: model_terms:ir.ui.view,arch_db:visitor_management.reception_visitor_view_form
+#: model_terms:ir.ui.view,arch_db:visitor_management.reception_visitor_view_list
+msgid "Check out"
+msgstr "Kolla upp"
+
+#. module: visitor_management
+#: model_terms:ir.ui.view,arch_db:visitor_management.reception_visitor_view_list
+msgid "CheckIn"
+msgstr "Checka in"
+
+#. module: visitor_management
+#: model_terms:ir.ui.view,arch_db:visitor_management.reception_visitor_view_search
+msgid "CheckIn Station"
+msgstr "Incheckningsstation"
+
+#. module: visitor_management
+#: model:ir.model.fields.selection,name:visitor_management.selection__reception_visitor__state__checked_in
+#: model_terms:ir.ui.view,arch_db:visitor_management.reception_visitor_view_search
+msgid "Checked-In"
+msgstr "Incheckad"
+
+#. module: visitor_management
+#: model:ir.model.fields.selection,name:visitor_management.selection__reception_visitor__state__checked_out
+msgid "Checked-Out"
+msgstr "Utcheckad"
+
+#. module: visitor_management
+#: model_terms:ir.ui.view,arch_db:visitor_management.reception_visitor_view_search
+msgid "Checked-out"
+msgstr "Utcheckad"
+
+#. module: visitor_management
+#: model_terms:ir.ui.view,arch_db:visitor_management.reception_visitor_view_list
+msgid "Checkout"
+msgstr "Checka ut"
+
+#. module: visitor_management
+#. odoo-javascript
+#: code:addons/visitor_management/static/src/end_page/end_page.xml:0
+#: code:addons/visitor_management/static/src/register_page/register_page.xml:0
+msgid "Close"
+msgstr "Nära"
+
+#. module: visitor_management
+#: model:ir.model.fields,field_description:visitor_management.field_reception_reception__company_id
+#: model:ir.model.fields,field_description:visitor_management.field_reception_visitor__company_id
+msgid "Company"
+msgstr "Företag"
+
+#. module: visitor_management
+#. odoo-javascript
+#: code:addons/visitor_management/static/src/navbar/navbar.xml:0
+#: model_terms:ir.ui.view,arch_db:visitor_management.print_visitor_badge
+msgid "Company Logo"
+msgstr "Företagets logotyp"
+
+#. module: visitor_management
+#: model:ir.ui.menu,name:visitor_management.reception_menu_config
+#: model_terms:ir.ui.view,arch_db:visitor_management.reception_reception_view_kanban
+msgid "Configuration"
+msgstr "Konfiguration"
+
+#. module: visitor_management
+#. odoo-javascript
+#: code:addons/visitor_management/static/src/host_page/host_page.xml:0
+msgid "Confirm"
+msgstr "Bekräfta"
+
+#. module: visitor_management
+#: model:ir.model,name:visitor_management.model_res_partner
+msgid "Contact"
+msgstr "Kontakt"
+
+#. module: visitor_management
+#: model:ir.model.fields,field_description:visitor_management.field_reception_reception__create_uid
+#: model:ir.model.fields,field_description:visitor_management.field_reception_visitor__create_uid
+msgid "Created by"
+msgstr "Skapad av"
+
+#. module: visitor_management
+#: model:ir.model.fields,field_description:visitor_management.field_reception_reception__create_date
+#: model:ir.model.fields,field_description:visitor_management.field_reception_visitor__create_date
+msgid "Created on"
+msgstr "Skapad den"
+
+#. module: visitor_management
+#: model:ir.model.fields.selection,name:visitor_management.selection__reception_reception__theme__dark
+msgid "Dark"
+msgstr "Mörk"
+
+#. module: visitor_management
+#: model_terms:ir.ui.view,arch_db:visitor_management.reception_visitor_view_search
+msgid "Date"
+msgstr "Datum"
+
+#. module: visitor_management
+#: model:ir.model.fields,field_description:visitor_management.field_reception_reception__description
+msgid "Description"
+msgstr "Beskrivning"
+
+#. module: visitor_management
+#: model:ir.model.fields,field_description:visitor_management.field_reception_reception__display_name
+#: model:ir.model.fields,field_description:visitor_management.field_reception_visitor__display_name
+msgid "Display Name"
+msgstr "Visningsnamn"
+
+#. module: visitor_management
+#: model:ir.model.fields,field_description:visitor_management.field_reception_visitor__duration
+msgid "Duration"
+msgstr "Varaktighet"
+
+#. module: visitor_management
+#: model_terms:ir.ui.view,arch_db:visitor_management.reception_visitor_view_form
+msgid "E.g. What's your Name"
+msgstr "T.ex. Vad heter du?"
+
+#. module: visitor_management
+#: model:ir.model.fields,field_description:visitor_management.field_reception_reception__ask_email
+#: model:ir.model.fields,field_description:visitor_management.field_reception_visitor__email
+msgid "Email"
+msgstr "E-post"
+
+#. module: visitor_management
+#: model:ir.model.fields,field_description:visitor_management.field_reception_reception__mail_template_id
+msgid "Email Template"
+msgstr "Mall för e-post"
+
+#. module: visitor_management
+#. odoo-javascript
+#: code:addons/visitor_management/static/src/js/tours/reception.js:0
+msgid "Enter the visitor's name."
+msgstr "Ange besökarens namn."
+
+#. module: visitor_management
+#: model_terms:ir.ui.view,arch_db:visitor_management.reception_reception_view_search
+msgid "Favorite"
+msgstr "Favorit"
+
+#. module: visitor_management
+#: model:mail.template,name:visitor_management.reception_mail_template
+msgid "Frontdesk Email Template"
+msgstr "Frontdesk e-postmall"
+
+#. module: visitor_management
+#: model:sms.template,name:visitor_management.reception_sms_template
+msgid "Frontdesk SMS Template"
+msgstr "Frontdesk SMS-mall"
+
+#. module: visitor_management
+#: model_terms:ir.ui.view,arch_db:visitor_management.reception_reception_view_search
+#: model_terms:ir.ui.view,arch_db:visitor_management.reception_visitor_view_search
+msgid "Group By"
+msgstr "Grupp av"
+
+#. module: visitor_management
+#: model:ir.actions.act_window,name:visitor_management.action_open_guest_on_site_visitor
+msgid "Guest On Site"
+msgstr "Gäst på plats"
+
+#. module: visitor_management
+#: model:ir.model.fields,field_description:visitor_management.field_reception_reception__guest_on_site
+msgid "Guests On Site"
+msgstr "Gäster på plats"
+
+#. module: visitor_management
+#: model:sms.template,body:visitor_management.reception_sms_template
+msgid ""
+"Hello, Your visitor {{ object.name }} {{ '(%s)' % object.phone if object."
+"phone else '' }} {{ '(%s)' % object.company if object.company else '' }} "
+"wants to meet you at {{ object.station_id.name }}. Please let them know "
+"you'll be there shortly."
+msgstr ""
+"Hej, din besökare {{ object.name }} {{ '(%s)' % object.phone if object."
+"phone else '' }} {{ '(%s)' % object.company if object.company else '' }} "
+"vill träffa dig på {{ object.station_id.name }}. Meddela dem att du snart "
+"är där."
+
+#. module: visitor_management
+#: model_terms:ir.ui.view,arch_db:visitor_management.print_visitor_badge
+msgid "Henry"
+msgstr "Henry"
+
+#. module: visitor_management
+#. odoo-javascript
+#: code:addons/visitor_management/static/src/js/tours/reception.js:0
+msgid "Here, you'll see list of all the visitors."
+msgstr "Här ser du en lista över alla besökare."
+
+#. module: visitor_management
+#: model_terms:ir.ui.view,arch_db:visitor_management.reception_visitor_view_list
+#: model_terms:ir.ui.view,arch_db:visitor_management.reception_visitor_view_search
+msgid "Host"
+msgstr "Värd"
+
+#. module: visitor_management
+#: model:ir.model.fields,field_description:visitor_management.field_reception_visitor__host_ids
+msgid "Host Name"
+msgstr "Värdnamn"
+
+#. module: visitor_management
+#: model:ir.model.fields,field_description:visitor_management.field_reception_reception__host_selection
+msgid "Host Selection"
+msgstr "Val av värd"
+
+#. module: visitor_management
+#: model:ir.model.fields,field_description:visitor_management.field_reception_reception__id
+#: model:ir.model.fields,field_description:visitor_management.field_reception_visitor__id
+msgid "ID"
+msgstr "ID"
+
+#. module: visitor_management
+#: model:ir.model.fields,field_description:visitor_management.field_reception_reception__image
+msgid "Image"
+msgstr "Bild"
+
+#. module: visitor_management
+#: model:ir.model.fields,field_description:visitor_management.field_reception_reception__is_favorite
+msgid "Is Favorite"
+msgstr "Är favorit"
+
+#. module: visitor_management
+#: model_terms:ir.ui.view,arch_db:visitor_management.print_visitor_badge
+msgid "Karen"
+msgstr "Karen"
+
+#. module: visitor_management
+#: model_terms:ir.ui.view,arch_db:visitor_management.reception_reception_view_kanban
+msgid "Kiosk"
+msgstr "Kiosk"
+
+#. module: visitor_management
+#: model:ir.model.fields,field_description:visitor_management.field_reception_reception__kiosk_url
+msgid "Kiosk URL"
+msgstr "Kiosk URL"
+
+#. module: visitor_management
+#. odoo-python
+#: code:addons/visitor_management/models/reception.py:0
+msgid "Last Check-In: %s hours ago"
+msgstr "Senaste incheckning: %s timmar sedan"
+
+#. module: visitor_management
+#. odoo-python
+#: code:addons/visitor_management/models/reception.py:0
+msgid "Last Check-In: %s minutes ago"
+msgstr "Senaste incheckning: %s minuter sedan"
+
+#. module: visitor_management
+#: model:ir.model.fields,field_description:visitor_management.field_reception_reception__write_uid
+#: model:ir.model.fields,field_description:visitor_management.field_reception_visitor__write_uid
+msgid "Last Updated by"
+msgstr "Senast uppdaterad av"
+
+#. module: visitor_management
+#: model:ir.model.fields,field_description:visitor_management.field_reception_reception__write_date
+#: model:ir.model.fields,field_description:visitor_management.field_reception_visitor__write_date
+msgid "Last Updated on"
+msgstr "Senast uppdaterad den"
+
+#. module: visitor_management
+#: model:ir.model.fields,field_description:visitor_management.field_reception_reception__latest_check_in
+msgid "Latest Check In"
+msgstr "Senaste incheckning"
+
+#. module: visitor_management
+#. odoo-javascript
+#: code:addons/visitor_management/static/src/js/tours/reception.js:0
+msgid "Let's add a new visitor."
+msgstr "Låt oss lägga till en ny besökare."
+
+#. module: visitor_management
+#: model:ir.model.fields.selection,name:visitor_management.selection__reception_reception__theme__light
+msgid "Light"
+msgstr "Ljus"
+
+#. module: visitor_management
+#. odoo-javascript
+#: code:addons/visitor_management/static/src/host_page/many2one/many2one.js:0
+msgid "Loading..."
+msgstr "Laddar..."
+
+#. module: visitor_management
+#. odoo-javascript
+#: code:addons/visitor_management/static/src/js/tours/reception.js:0
+msgid ""
+"Looking for a better way to manage your visitors? \n"
+" It begins right here."
+msgstr ""
+"Letar du efter ett bättre sätt att hantera dina besökare?\n"
+" Det börjar precis här."
+
+#. module: visitor_management
+#: model_terms:ir.ui.view,arch_db:visitor_management.print_visitor_badge
+msgid "MY PVT LTD"
+msgstr "MY PVT LTD"
+
+#. module: visitor_management
+#: model:ir.model.fields,field_description:visitor_management.field_reception_visitor__message
+#: model_terms:ir.ui.view,arch_db:visitor_management.reception_visitor_view_form
+msgid "Message"
+msgstr "Meddelande"
+
+#. module: visitor_management
+#: model_terms:ir.ui.view,arch_db:visitor_management.reception_reception_view_search
+msgid "My Station"
+msgstr "Min station"
+
+#. module: visitor_management
+#: model:ir.model.fields,field_description:visitor_management.field_reception_visitor__name
+msgid "Name"
+msgstr "Namn"
+
+#. module: visitor_management
+#: model_terms:ir.actions.act_window,help:visitor_management.action_reception_reception
+#: model_terms:ir.actions.act_window,help:visitor_management.action_reception_reception_list
+msgid "No stations found. Let's create one!"
+msgstr "Inga stationer hittade. Låt oss skapa en!"
+
+#. module: visitor_management
+#: model_terms:ir.actions.act_window,help:visitor_management.action_open_guest_on_site_visitor
+#: model_terms:ir.actions.act_window,help:visitor_management.action_open_planned_visitor
+#: model_terms:ir.actions.act_window,help:visitor_management.action_open_station_visitor
+#: model_terms:ir.actions.act_window,help:visitor_management.action_reception_visitor
+msgid "No visitors yet. Let's add one!"
+msgstr "Inga besökare ännu. Låt oss lägga till en!"
+
+#. module: visitor_management
+#: model:ir.model.fields.selection,name:visitor_management.selection__reception_reception__ask_company__none
+#: model:ir.model.fields.selection,name:visitor_management.selection__reception_reception__ask_email__none
+#: model:ir.model.fields.selection,name:visitor_management.selection__reception_reception__ask_phone__none
+msgid "None"
+msgstr "Ingen"
+
+#. module: visitor_management
+#: model:ir.model.fields,field_description:visitor_management.field_reception_reception__notify_sms
+msgid "Notify by SMS"
+msgstr "Meddela via SMS"
+
+#. module: visitor_management
+#: model:ir.model.fields,field_description:visitor_management.field_reception_reception__notify_discuss
+msgid "Notify by discuss"
+msgstr "Meddela genom att diskutera"
+
+#. module: visitor_management
+#: model:ir.model.fields,field_description:visitor_management.field_reception_reception__notify_email
+msgid "Notify by email"
+msgstr "Meddela via e-post"
+
+#. module: visitor_management
+#: model_terms:ir.ui.view,arch_db:visitor_management.reception_reception_view_form
+msgid "Notify the host on guest arrival"
+msgstr "Meddela värden vid gästens ankomst"
+
+#. module: visitor_management
+#: model_terms:ir.actions.act_window,help:visitor_management.action_open_guest_on_site_visitor
+#: model_terms:ir.actions.act_window,help:visitor_management.action_open_planned_visitor
+#: model_terms:ir.actions.act_window,help:visitor_management.action_open_station_visitor
+#: model_terms:ir.actions.act_window,help:visitor_management.action_reception_visitor
+msgid "Odoo helps you to track all information related to your visitors."
+msgstr ""
+"Odoo hjälper dig att spåra all information som är relaterad till dina "
+"besökare."
+
+#. module: visitor_management
+#: model_terms:ir.ui.view,arch_db:visitor_management.reception_reception_view_kanban
+msgid "On Site"
+msgstr "På plats"
+
+#. module: visitor_management
+#: model_terms:ir.ui.view,arch_db:visitor_management.reception_reception_view_form
+msgid "Open Kiosk"
+msgstr "Öppna Kiosk"
+
+#. module: visitor_management
+#: model_terms:ir.ui.view,arch_db:visitor_management.reception_reception_view_kanban
+msgid "Open Reception"
+msgstr "Öppen mottagning"
+
+#. module: visitor_management
+#: model:ir.actions.act_window,name:visitor_management.action_open_station_visitor
+msgid "Open Station Visitor"
+msgstr "Öppen station Besökare"
+
+#. module: visitor_management
+#: model_terms:ir.ui.view,arch_db:visitor_management.reception_reception_view_form
+msgid "Open host chat window when guest arrives"
+msgstr "Öppna chattfönstret för värden när gästen anländer"
+
+#. module: visitor_management
+#: model:ir.model.fields.selection,name:visitor_management.selection__reception_reception__ask_company__optional
+#: model:ir.model.fields.selection,name:visitor_management.selection__reception_reception__ask_email__optional
+#: model:ir.model.fields.selection,name:visitor_management.selection__reception_reception__ask_phone__optional
+msgid "Optional"
+msgstr "Valfritt"
+
+#. module: visitor_management
+#: model_terms:ir.ui.view,arch_db:visitor_management.reception_reception_view_form
+msgid "Options"
+msgstr "Alternativ"
+
+#. module: visitor_management
+#: model:ir.model.fields,field_description:visitor_management.field_reception_reception__ask_company
+msgid "Organization"
+msgstr "Organisation"
+
+#. module: visitor_management
+#: model:ir.model.fields,field_description:visitor_management.field_reception_visitor__partner_id
+msgid "Partner"
+msgstr "Partner"
+
+#. module: visitor_management
+#: model:ir.model.fields,field_description:visitor_management.field_reception_reception__pending
+msgid "Pending"
+msgstr "Avvaktande"
+
+#. module: visitor_management
+#: model:ir.model.fields,field_description:visitor_management.field_reception_reception__ask_phone
+#: model:ir.model.fields,field_description:visitor_management.field_reception_visitor__phone
+msgid "Phone"
+msgstr "Telefon"
+
+#. module: visitor_management
+#: model:ir.actions.act_window,name:visitor_management.action_open_planned_visitor
+#: model:ir.model.fields.selection,name:visitor_management.selection__reception_visitor__state__planned
+#: model_terms:ir.ui.view,arch_db:visitor_management.reception_reception_view_kanban
+#: model_terms:ir.ui.view,arch_db:visitor_management.reception_visitor_view_search
+msgid "Planned"
+msgstr "Planerad"
+
+#. module: visitor_management
+#. odoo-javascript
+#: code:addons/visitor_management/static/src/register_page/register_page.xml:0
+msgid "Please have a seat."
+msgstr "Varsågod och sitt."
+
+#. module: visitor_management
+#: model_terms:ir.ui.view,arch_db:visitor_management.reception_qr_expired
+msgid "Please rescan it."
+msgstr "Vänligen skanna om den."
+
+#. module: visitor_management
+#: model_terms:ir.ui.view,arch_db:visitor_management.reception_visitor_view_list
+msgid "Print Badge"
+msgstr "Skriv ut bricka"
+
+#. module: visitor_management
+#: model:ir.actions.report,name:visitor_management.reception_visitor_print_badge
+msgid "Print Visitor Badge"
+msgstr "Skriv ut besöksbricka"
+
+#. module: visitor_management
+#: model:ir.model.fields,field_description:visitor_management.field_reception_visitor__visitor_properties
+#: model_terms:ir.ui.view,arch_db:visitor_management.reception_visitor_view_list
+msgid "Properties"
+msgstr "Fastigheter"
+
+#. module: visitor_management
+#. odoo-javascript
+#: code:addons/visitor_management/static/src/welcome_page/welcome_page.xml:0
+msgid "QR Code"
+msgstr "QR-kod"
+
+#. module: visitor_management
+#: model_terms:ir.ui.view,arch_db:visitor_management.reception_qr_expired
+msgid "QR Code Expired."
+msgstr "QR-kod Utgått."
+
+#. module: visitor_management
+#. odoo-javascript
+#: code:addons/visitor_management/static/src/quick_check_in/quick_check_in.xml:0
+msgid "Quick Check In"
+msgstr "Snabb incheckning"
+
+#. module: visitor_management
+#: model:ir.actions.client,name:visitor_management.reception_action_install_kiosk_pwa
+#: model:ir.model,name:visitor_management.model_reception_reception
+#: model:ir.module.category,name:visitor_management.module_category_human_resources_reception
+#: model:ir.ui.menu,name:visitor_management.reception_menu_root
+#: model_terms:ir.ui.view,arch_db:visitor_management.reception_reception_view_form
+msgid "Reception"
+msgstr "Mottagning"
+
+#. module: visitor_management
+#: model:ir.ui.menu,name:visitor_management.reception_menu_report
+msgid "Reporting"
+msgstr "Rapportering"
+
+#. module: visitor_management
+#: model_terms:ir.ui.view,arch_db:visitor_management.reception_reception_view_form
+msgid "Request additional information upon registering"
+msgstr "Begär ytterligare information vid registreringen"
+
+#. module: visitor_management
+#: model:ir.model.fields.selection,name:visitor_management.selection__reception_reception__ask_company__required
+#: model:ir.model.fields.selection,name:visitor_management.selection__reception_reception__ask_email__required
+#: model:ir.model.fields.selection,name:visitor_management.selection__reception_reception__ask_phone__required
+msgid "Required"
+msgstr "Krävs"
+
+#. module: visitor_management
+#: model_terms:ir.ui.view,arch_db:visitor_management.reception_reception_view_search
+msgid "Responsible"
+msgstr "Ansvarig"
+
+#. module: visitor_management
+#: model:ir.model.fields,field_description:visitor_management.field_reception_reception__responsible_ids
+msgid "Responsibles"
+msgstr "Ansvariga"
+
+#. module: visitor_management
+#: model:ir.model.fields,field_description:visitor_management.field_reception_reception__sms_template_id
+msgid "SMS Template"
+msgstr "SMS mall"
+
+#. module: visitor_management
+#. odoo-javascript
+#: code:addons/visitor_management/static/src/js/tours/reception.js:0
+msgid "Save the visitor."
+msgstr "Spara besökaren."
+
+#. module: visitor_management
+#: model:ir.model.fields,field_description:visitor_management.field_reception_reception__access_token
+msgid "Security pollett"
+msgstr "Säkerhetstoken"
+
+#. module: visitor_management
+#. odoo-javascript
+#: code:addons/visitor_management/static/src/js/tours/reception.js:0
+msgid "Select or create a station on the fly from where the visitor arrived."
+msgstr ""
+"Välj eller skapa en station i farten från den plats där besökaren anlände."
+
+#. module: visitor_management
+#: model_terms:ir.ui.view,arch_db:visitor_management.reception_reception_view_form
+msgid "Select the color of the Desk"
+msgstr "Välj färg på skrivbordet"
+
+#. module: visitor_management
+#: model:ir.model.fields,field_description:visitor_management.field_reception_reception__self_check_in
+msgid "Self Check-In"
+msgstr "Självincheckning"
+
+#. module: visitor_management
+#: model_terms:ir.ui.view,arch_db:visitor_management.reception_reception_view_form
+msgid "Send an SMS to the host on guest arrival"
+msgstr "Skicka ett SMS till värden vid gästens ankomst"
+
+#. module: visitor_management
+#: model:mail.template,description:visitor_management.reception_mail_template
+msgid "Sent to hosts on guest arrival"
+msgstr "Skickas till värd vid gästens ankomst"
+
+#. module: visitor_management
+#: model_terms:ir.ui.view,arch_db:visitor_management.reception_reception_view_form
+msgid "Show a QR code on the welcome screen to check-in from mobile"
+msgstr "Visa en QR-kod på välkomstskärmen för att checka in från mobilen"
+
+#. module: visitor_management
+#: model:ir.model.fields,help:visitor_management.field_reception_reception__self_check_in
+msgid ""
+"Shows a QR code in the interface, for guests to check in from their mobile "
+"phone."
+msgstr ""
+"Visar en QR-kod i gränssnittet, så att gästerna kan checka in från sin "
+"mobiltelefon."
+
+#. module: visitor_management
+#: model_terms:ir.ui.view,arch_db:visitor_management.reception_reception_view_form
+msgid "Side Message"
+msgstr "Sidomeddelande"
+
+#. module: visitor_management
+#: model:ir.model.fields,field_description:visitor_management.field_reception_visitor__station_id
+#: model_terms:ir.ui.view,arch_db:visitor_management.reception_visitor_view_search
+msgid "Station"
+msgstr "Station"
+
+#. module: visitor_management
+#: model_terms:ir.ui.view,arch_db:visitor_management.reception_reception_view_search
+msgid "Station Name"
+msgstr "Stationens namn"
+
+#. module: visitor_management
+#: model:ir.actions.act_window,name:visitor_management.action_reception_reception
+#: model:ir.actions.act_window,name:visitor_management.action_reception_reception_list
+#: model:ir.ui.menu,name:visitor_management.reception_menu_stations
+#: model:ir.ui.menu,name:visitor_management.reception_menu_stations_config
+msgid "Stations"
+msgstr "Stationer"
+
+#. module: visitor_management
+#: model:ir.actions.act_window,name:visitor_management.action_reception_station_report
+#: model_terms:ir.ui.view,arch_db:visitor_management.reception_reception_view_kanban
+msgid "Statistics"
+msgstr "Statistik"
+
+#. module: visitor_management
+#: model:ir.model.fields,field_description:visitor_management.field_reception_visitor__state
+#: model_terms:ir.ui.view,arch_db:visitor_management.reception_visitor_view_search
+msgid "Status"
+msgstr "Status"
+
+#. module: visitor_management
+#. odoo-javascript
+#: code:addons/visitor_management/static/src/end_page/end_page.xml:0
+msgid "Thank you for registering!"
+msgstr "Tack för att du registrerade dig!"
+
+#. module: visitor_management
+#: model:ir.model.fields,field_description:visitor_management.field_reception_reception__theme
+msgid "Theme"
+msgstr "Tema"
+
+#. module: visitor_management
+#: model_terms:ir.ui.view,arch_db:visitor_management.reception_visitor_view_search
+msgid "Today"
+msgstr "Idag"
+
+#. module: visitor_management
+#: model:res.groups,name:visitor_management.reception_group_user
+msgid "User"
+msgstr "Användare"
+
+#. module: visitor_management
+#: model:ir.model.fields,help:visitor_management.field_reception_visitor__partner_id
+msgid "Visiting partner"
+msgstr "Besökande partner"
+
+#. module: visitor_management
+#: model_terms:ir.ui.view,arch_db:visitor_management.print_visitor_badge
+#: model_terms:ir.ui.view,arch_db:visitor_management.reception_visitor_view_search
+msgid "Visitor"
+msgstr "Besökare"
+
+#. module: visitor_management
+#: model:ir.model.fields,field_description:visitor_management.field_reception_visitor__company
+msgid "Visitor Company"
+msgstr "Besökande företag"
+
+#. module: visitor_management
+#: model:ir.model.fields,field_description:visitor_management.field_reception_reception__visitor_properties_definition
+msgid "Visitor Properties"
+msgstr "Besöksfastigheter"
+
+#. module: visitor_management
+#. odoo-python
+#: code:addons/visitor_management/models/reception.py:0
+#: model:ir.actions.act_window,name:visitor_management.action_reception_visitor
+#: model:ir.actions.act_window,name:visitor_management.action_reception_visitors_report
+#: model:ir.model,name:visitor_management.model_reception_visitor
+#: model:ir.model.fields,field_description:visitor_management.field_reception_reception__visitor_ids
+#: model:ir.ui.menu,name:visitor_management.reception_menu_report_visitors
+#: model:ir.ui.menu,name:visitor_management.reception_menu_visitors
+#: model_terms:ir.ui.view,arch_db:visitor_management.reception_reception_view_kanban
+#: model_terms:ir.ui.view,arch_db:visitor_management.reception_station_report_view_graph
+#: model_terms:ir.ui.view,arch_db:visitor_management.reception_visitor_report_view_graph
+#: model_terms:ir.ui.view,arch_db:visitor_management.reception_visitor_view_graph
+#: model_terms:ir.ui.view,arch_db:visitor_management.reception_visitor_view_pivot
+msgid "Visitors"
+msgstr "Besökare"
+
+#. module: visitor_management
+#: model:ir.model.fields,field_description:visitor_management.field_res_partner__visit_ids
+#: model:ir.model.fields,field_description:visitor_management.field_res_users__visit_ids
+msgid "Visits"
+msgstr "Besök"
+
+#. module: visitor_management
+#. odoo-javascript
+#: code:addons/visitor_management/static/src/welcome_page/welcome_page.xml:0
+msgid "Welcome"
+msgstr "Välkommen"
+
+#. module: visitor_management
+#. odoo-javascript
+#: code:addons/visitor_management/static/src/navbar/navbar.xml:0
+msgid "Who are you visiting?"
+msgstr "Vem ska du besöka?"
+
+#. module: visitor_management
+#. odoo-javascript
+#: code:addons/visitor_management/static/src/navbar/navbar.xml:0
+msgid "Who are you?"
+msgstr "Vem är du?"
+
+#. module: visitor_management
+#: model_terms:ir.ui.view,arch_db:visitor_management.reception_reception_view_form
+msgid "Write message..."
+msgstr "Skriv meddelande..."
+
+#. module: visitor_management
+#. odoo-javascript
+#: code:addons/visitor_management/static/src/register_page/register_page.xml:0
+msgid "You have been registered!"
+msgstr "Du har blivit registrerad!"
+
+#. module: visitor_management
+#. odoo-javascript
+#: code:addons/visitor_management/static/src/visitor_form/visitor_form.xml:0
+msgid "Your Company"
+msgstr "Ditt företag"
+
+#. module: visitor_management
+#. odoo-javascript
+#: code:addons/visitor_management/static/src/visitor_form/visitor_form.xml:0
+msgid "Your Email"
+msgstr "Din e-post"
+
+#. module: visitor_management
+#. odoo-javascript
+#: code:addons/visitor_management/static/src/visitor_form/visitor_form.xml:0
+msgid "Your Name"
+msgstr "Ditt namn"
+
+#. module: visitor_management
+#. odoo-javascript
+#: code:addons/visitor_management/static/src/visitor_form/visitor_form.xml:0
+msgid "Your Phone Number"
+msgstr "Ditt telefonnummer"
+
+#. module: visitor_management
+#: model:mail.template,subject:visitor_management.reception_mail_template
+msgid "Your Visitor {{ object.name }} Requested To Meet You"
+msgstr "Din besökare {{ object.name }} Begärde att få träffa dig"
+
+#. module: visitor_management
+#. odoo-javascript
+#: code:addons/visitor_management/static/src/visitor_form/visitor_form.xml:0
+msgid "e.g. John Doe"
+msgstr "t.ex. John Doe"
+
+#. module: visitor_management
+#. odoo-javascript
+#: code:addons/visitor_management/static/src/visitor_form/visitor_form.xml:0
+msgid "e.g. My Company"
+msgstr "t.ex. Mitt företag"
+
+#. module: visitor_management
+#. odoo-javascript
+#: code:addons/visitor_management/static/src/visitor_form/visitor_form.xml:0
+msgid "e.g. john@company.com"
+msgstr "t.ex. john@company.com"
+
+#. module: visitor_management
+#. odoo-javascript
+#: code:addons/visitor_management/static/src/end_page/end_page.xml:0
+msgid "has been informed."
+msgstr "har blivit informerad."
+
+#. module: visitor_management
+#: model:ir.model.fields,field_description:visitor_management.field_reception_reception__name
+msgid "reception Name"
+msgstr "mottagningens namn"
+
+#. module: visitor_management
+#. odoo-javascript
+#: code:addons/visitor_management/static/src/welcome_page/welcome_page.xml:0
+msgid "to"
+msgstr "till"
+
+#. module: visitor_management
+#. odoo-javascript
+#: code:addons/visitor_management/static/src/register_page/register_page.xml:0
+msgid "will get back to you."
+msgstr "kommer att återkomma till dig."
