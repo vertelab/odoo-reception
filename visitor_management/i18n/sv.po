@@ -213,14 +213,14 @@ msgstr "Nära"
 #: model:ir.model.fields,field_description:visitor_management.field_reception_reception__company_id
 #: model:ir.model.fields,field_description:visitor_management.field_reception_visitor__company_id
 msgid "Company"
-msgstr "Företag"
+msgstr "Bolag"
 
 #. module: visitor_management
 #. odoo-javascript
 #: code:addons/visitor_management/static/src/navbar/navbar.xml:0
 #: model_terms:ir.ui.view,arch_db:visitor_management.print_visitor_badge
 msgid "Company Logo"
-msgstr "Företagets logotyp"
+msgstr "Bolagets logotyp"
 
 #. module: visitor_management
 #: model:ir.ui.menu,name:visitor_management.reception_menu_config
@@ -803,7 +803,7 @@ msgstr "Besökare"
 #. module: visitor_management
 #: model:ir.model.fields,field_description:visitor_management.field_reception_visitor__company
 msgid "Visitor Company"
-msgstr "Besökande företag"
+msgstr "Besökande bolag"
 
 #. module: visitor_management
 #: model:ir.model.fields,field_description:visitor_management.field_reception_reception__visitor_properties_definition
@@ -866,7 +866,7 @@ msgstr "Du har blivit registrerad!"
 #. odoo-javascript
 #: code:addons/visitor_management/static/src/visitor_form/visitor_form.xml:0
 msgid "Your Company"
-msgstr "Ditt företag"
+msgstr "Ditt bolag"
 
 #. module: visitor_management
 #. odoo-javascript
@@ -901,7 +901,7 @@ msgstr "t.ex. John Doe"
 #. odoo-javascript
 #: code:addons/visitor_management/static/src/visitor_form/visitor_form.xml:0
 msgid "e.g. My Company"
-msgstr "t.ex. Mitt företag"
+msgstr "t.ex. Mitt bolag"
 
 #. module: visitor_management
 #. odoo-javascript
