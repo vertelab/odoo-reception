@@ -33,7 +33,7 @@ msgstr "%(station)s Check-in: %(visitor)s möter %(host)s"
 #. odoo-python
 #: code:addons/visitor_management/models/reception_visitor.py:0
 msgid "%s just checked-in."
-msgstr "%s checkade just in."
+msgstr "%s checkade nyss in."
 
 #. module: visitor_management
 #: model:ir.actions.report,print_report_name:visitor_management.reception_visitor_print_badge
@@ -117,7 +117,7 @@ msgstr "Arkiverad"
 #. odoo-javascript
 #: code:addons/visitor_management/static/src/quick_check_in/quick_check_in.xml:0
 msgid "Are you one of these people?"
-msgstr "Är du en av dessa människor?"
+msgstr "Är du en av dessa besökare?"
 
 #. module: visitor_management
 #: model:ir.model.fields,field_description:visitor_management.field_reception_reception__authenticate_guest
@@ -133,7 +133,7 @@ msgstr "Tillbaka"
 #. module: visitor_management
 #: model_terms:ir.ui.view,arch_db:visitor_management.reception_reception_view_search
 msgid "By Responsible"
-msgstr "Av Ansvarig"
+msgstr "Av ansvarig"
 
 #. module: visitor_management
 #: model_terms:ir.ui.view,arch_db:visitor_management.reception_visitor_view_form
@@ -207,7 +207,7 @@ msgstr "Checka ut"
 #: code:addons/visitor_management/static/src/end_page/end_page.xml:0
 #: code:addons/visitor_management/static/src/register_page/register_page.xml:0
 msgid "Close"
-msgstr "Nära"
+msgstr "Stäng"
 
 #. module: visitor_management
 #: model:ir.model.fields,field_description:visitor_management.field_reception_reception__company_id
@@ -318,7 +318,7 @@ msgstr "Frontdesk SMS-mall"
 #: model_terms:ir.ui.view,arch_db:visitor_management.reception_reception_view_search
 #: model_terms:ir.ui.view,arch_db:visitor_management.reception_visitor_view_search
 msgid "Group By"
-msgstr "Grupp av"
+msgstr "Gruppera på"
 
 #. module: visitor_management
 #: model:ir.actions.act_window,name:visitor_management.action_open_guest_on_site_visitor
@@ -542,12 +542,12 @@ msgstr "Öppna Kiosk"
 #. module: visitor_management
 #: model_terms:ir.ui.view,arch_db:visitor_management.reception_reception_view_kanban
 msgid "Open Reception"
-msgstr "Öppen mottagning"
+msgstr "Öppna receptionen"
 
 #. module: visitor_management
 #: model:ir.actions.act_window,name:visitor_management.action_open_station_visitor
 msgid "Open Station Visitor"
-msgstr "Öppen station Besökare"
+msgstr "Öppna besöksstationen"
 
 #. module: visitor_management
 #: model_terms:ir.ui.view,arch_db:visitor_management.reception_reception_view_form
@@ -574,7 +574,7 @@ msgstr "Organisation"
 #. module: visitor_management
 #: model:ir.model.fields,field_description:visitor_management.field_reception_visitor__partner_id
 msgid "Partner"
-msgstr "Partner"
+msgstr "Kontakt"
 
 #. module: visitor_management
 #: model:ir.model.fields,field_description:visitor_management.field_reception_reception__pending
@@ -620,7 +620,7 @@ msgstr "Skriv ut besöksbricka"
 #: model:ir.model.fields,field_description:visitor_management.field_reception_visitor__visitor_properties
 #: model_terms:ir.ui.view,arch_db:visitor_management.reception_visitor_view_list
 msgid "Properties"
-msgstr "Fastigheter"
+msgstr "Egenskaper"
 
 #. module: visitor_management
 #. odoo-javascript
@@ -646,7 +646,7 @@ msgstr "Snabb incheckning"
 #: model:ir.ui.menu,name:visitor_management.reception_menu_root
 #: model_terms:ir.ui.view,arch_db:visitor_management.reception_reception_view_form
 msgid "Reception"
-msgstr "Mottagning"
+msgstr "Reception"
 
 #. module: visitor_management
 #: model:ir.ui.menu,name:visitor_management.reception_menu_report
