@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- New Evacuation Form -->
+    <template id="new_evacuation_form" name="New Fire Evacuation">
+        <t t-call="website.layout">
+            <div id="wrap" class="oe_structure">
+                <section class="container mt-5">
+                    <div class="row justify-content-center">
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-header bg-danger text-white">
+                                    <h3 class="mb-0">
+                                        <i class="fa fa-fire-extinguisher"/> Fire Evacuation
+                                    </h3>
+                                </div>
+                                <div class="card-body">
+                                    <t t-if="error">
+                                        <div class="alert alert-danger">
+                                            <i class="fa fa-exclamation-triangle"/> <t t-esc="error"/>
+                                        </div>
+                                    </t>
+
+                                    <form action="/fire/evacuation/new" method="post">
+                                        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+
+                                        <div class="form-group">
+                                            <label for="site">Site / Location *</label>
+                                            <input type="text"
+                                                   class="form-control form-control-lg"
+                                                   id="site"
+                                                   name="site"
+                                                   placeholder="Enter site name"
+                                                   required="required"
+                                                   autofocus="autofocus"/>
+                                        </div>
+
+                                        <div class="alert alert-info mt-3">
+                                            <i class="fa fa-info-circle"/>
+                                            This will create an evacuation record and automatically load all people currently at this site.
+                                        </div>
+
+                                        <button type="submit" class="btn btn-danger btn-lg btn-block mt-4">
+                                            <i class="fa fa-exclamation-triangle"/> Start Evacuation
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </t>
+    </template>
+
+    <!-- Evacuation List View -->
+    <template id="evacuation_list_template" name="Fire Evacuation List">
+        <t t-call="website.layout">
+            <div id="wrap" class="oe_structure">
+                <section class="container mt-5">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="d-flex justify-content-between align-items-center mb-4">
+                                <div>
+                                    <h1>
+                                        <i class="fa fa-fire-extinguisher text-danger"/>
+                                        <t t-esc="evacuation.name"/>
+                                    </h1>
+                                    <p class="text-muted">
+                                        <i class="fa fa-clock-o"/> <t t-esc="evacuation.date"/>
+                                    </p>
+                                </div>
+                                <div>
+                                    <a t-attf-href="/fire/evacuation/#{evacuation.id}/reload"
+                                       class="btn btn-warning">
+                                        <i class="fa fa-refresh"/> Reload People
+                                    </a>
+                                </div>
+                            </div>
+
+                            <!-- Summary Stats -->
+                            <div class="row mb-4">
+                                <div class="col-md-4">
+                                    <div class="card text-center">
+                                        <div class="card-body">
+                                            <h2 class="mb-0"><t t-esc="len(lines)"/></h2>
+                                            <p class="text-muted mb-0">Total People</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card text-center bg-success text-white">
+                                        <div class="card-body">
+                                            <h2 class="mb-0"><t t-esc="len([l for l in lines if l.is_ok])"/></h2>
+                                            <p class="mb-0">Safe</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card text-center bg-danger text-white">
+                                        <div class="card-body">
+                                            <h2 class="mb-0"><t t-esc="len([l for l in lines if not l.is_ok])"/></h2>
+                                            <p class="mb-0">Pending</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card shadow">
+                                <div class="card-header bg-dark text-white">
+                                    <h4 class="mb-0">
+                                        Evacuation List
+                                    </h4>
+                                </div>
+                                <div class="card-body p-0">
+                                    <t t-if="not lines">
+                                        <div class="p-5 text-center text-muted">
+                                            <i class="fa fa-users fa-3x mb-3"/>
+                                            <p>No people found at this location.</p>
+                                        </div>
+                                    </t>
+                                    <t t-else="">
+                                        <div class="table-responsive">
+                                            <table class="table table-hover mb-0">
+                                                <thead class="thead-light">
+                                                    <tr>
+                                                        <th width="50" class="text-center">Status</th>
+                                                        <th>Name</th>
+                                                        <th>Phone</th>
+                                                        <th>Source</th>
+                                                        <th width="150" class="text-center">Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <t t-foreach="lines" t-as="line">
+                                                        <tr t-att-class="'table-success' if line.is_ok else ''">
+                                                            <td class="text-center">
+                                                                <t t-if="line.is_ok">
+                                                                    <i class="fa fa-check-circle fa-2x text-success"/>
+                                                                </t>
+                                                                <t t-else="">
+                                                                    <i class="fa fa-exclamation-circle fa-2x text-danger"/>
+                                                                </t>
+                                                            </td>
+                                                            <td>
+                                                                <strong><t t-esc="line.name"/></strong>
+                                                            </td>
+                                                            <td>
+                                                                <t t-if="line.phone">
+                                                                    <i class="fa fa-phone"/> <t t-esc="line.phone"/>
+                                                                </t>
+                                                                <t t-else="">
+                                                                    <span class="text-muted">-</span>
+                                                                </t>
+                                                            </td>
+                                                            <td>
+                                                                <span class="badge badge-info">
+                                                                    <t t-if="line.res_model == 'reception.visitor'">
+                                                                        <i class="fa fa-user"/> Visitor
+                                                                    </t>
+                                                                    <t t-elif="line.res_model == 'hr.attendance'">
+                                                                        <i class="fa fa-id-badge"/> Employee
+                                                                    </t>
+                                                                    <t t-else="">
+                                                                        <t t-esc="line.res_model"/>
+                                                                    </t>
+                                                                </span>
+                                                            </td>
+                                                            <td class="text-center">
+                                                                <a t-attf-href="/fire/evacuation/#{line.id}/toggle"
+                                                                   t-att-class="'btn btn-md ' + ('btn-danger' if line.is_ok else 'btn-success')">
+                                                                    <t t-if="line.is_ok">
+                                                                        <i class="fa fa-times"/> Evacuated
+                                                                    </t>
+                                                                    <t t-else="">
+                                                                        <i class="fa fa-check"/> Mark OK
+                                                                    </t>
+                                                                </a>
+                                                            </td>
+                                                        </tr>
+                                                    </t>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </t>
+                                </div>
+                            </div>
+
+                            <div class="mt-4 mb-4">
+                                <a href="/fire/evacuation/new" class="btn btn-secondary">
+                                    <i class="fa fa-arrow-left"/> New Evacuation
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </t>
+    </template>
+</odoo>
