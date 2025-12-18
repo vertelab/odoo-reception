@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <!-- Start Evacuation Button -->
     <template id="start_evacuation" name="Start Evacuation">
         <t t-call="website.layout">
             <div id="wrap" class="oe_structure">
@@ -21,12 +20,10 @@
         </t>
     </template>
 
-    <!-- Evacuation List View -->
     <template id="evacuation_list_template" name="Fire Evacuation List">
         <t t-call="website.layout">
             <div id="wrap" class="oe_structure">
                 <section class="container py-4">
-                    <!-- Header -->
                     <div class="row mb-3">
                         <div class="col-12">
                             <div class="d-flex justify-content-between align-items-center flex-wrap">
@@ -53,7 +50,6 @@
                         </div>
                     </div>
 
-                    <!-- Stats Bar - 3 in a row on mobile -->
                     <div class="row mb-3">
                         <div class="col-4 px-1">
                             <div class="alert alert-secondary text-center mb-0 py-4">
@@ -75,7 +71,6 @@
                         </div>
                     </div>
 
-                    <!-- People Grid -->
                     <t t-if="not lines">
                         <div class="text-center py-5">
                             <i class="fa fa-users fa-4x text-muted mb-3"/>
@@ -89,7 +84,6 @@
                                     <div t-att-class="'border rounded p-3 text-center h-100 ' + ('bg-light border-success' if line.is_ok else 'bg-white border-danger border-2')"
                                          style="position: relative;">
 
-                                        <!-- Status Badge -->
                                         <div style="position: absolute; top: 8px; right: 8px; z-index: 10;">
                                             <t t-if="line.is_ok">
                                                 <span class="badge badge-success rounded-circle" style="width: 32px; height: 40px; padding: 7px;">
@@ -103,7 +97,6 @@
                                             </t>
                                         </div>
 
-                                        <!-- Image -->
                                         <div class="mb-3 mt-2">
                                             <t t-if="line.image">
                                                 <img t-att-src="'data:image/png;base64,%s' % line.image.decode('utf-8')"
@@ -119,14 +112,12 @@
                                             </t>
                                         </div>
 
-                                        <!-- Name -->
                                         <div class="mb-3" style="min-height: 38px;">
                                             <div class="font-weight-bold" style="font-size: 0.9rem; line-height: 1.2;">
                                                 <t t-esc="line.name"/>
                                             </div>
                                         </div>
 
-                                        <!-- Phone -->
                                         <t t-if="line.phone">
                                             <a t-attf-href="tel:#{line.phone}"
                                                class="btn btn-sm btn-outline-secondary btn-block mb-3"
@@ -135,7 +126,6 @@
                                             </a>
                                         </t>
 
-                                        <!-- Source Badge -->
                                         <div class="mb-3">
                                             <t t-if="line.res_model == 'reception.visitor'">
                                                 <span class="badge badge-info" style="font-size: 0.75rem; padding: 4px 8px;">
@@ -149,7 +139,6 @@
                                             </t>
                                         </div>
 
-                                        <!-- Action Button -->
                                         <a t-attf-href="/fire/evacuation/#{line.id}/toggle"
                                            t-att-class="'btn btn-block font-weight-bold ' + ('btn-danger' if line.is_ok else 'btn-success')"
                                            style="font-size: 0.9rem; padding: 10px;">

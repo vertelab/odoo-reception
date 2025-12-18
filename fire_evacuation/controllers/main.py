@@ -51,7 +51,7 @@ class FireEvacuationController(http.Controller):
         evacuation = request.env['fire.evacuation'].browse(evacuation_id)
 
         if evacuation.exists():
-            evacuation.action_reload_lines()
+            evacuation.action_load_people()
 
         return request.redirect(f'/fire/evacuation/{evacuation_id}')
 

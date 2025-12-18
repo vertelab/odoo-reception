@@ -31,12 +31,6 @@ class FireEvacuation(models.Model):
 
         return True
 
-    def action_reload_lines(self):
-        self.ensure_one()
-        # Trigger recompute of all lines
-        self.fire_evacuation_ids._compute_image()
-        return True
-
     def _get_visitors(self):
         lines = []
 
