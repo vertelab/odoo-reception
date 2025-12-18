@@ -1,51 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <!-- New Evacuation Form -->
-    <template id="new_evacuation_form" name="New Fire Evacuation">
+    <!-- Start Evacuation Button -->
+    <template id="start_evacuation" name="Start Evacuation">
         <t t-call="website.layout">
             <div id="wrap" class="oe_structure">
-                <section class="container mt-5">
-                    <div class="row justify-content-center">
-                        <div class="col-md-6">
-                            <div class="card">
-                                <div class="card-header bg-danger text-white">
-                                    <h3 class="mb-0">
-                                        <i class="fa fa-fire-extinguisher"/> Fire Evacuation
-                                    </h3>
-                                </div>
-                                <div class="card-body">
-                                    <t t-if="error">
-                                        <div class="alert alert-danger">
-                                            <i class="fa fa-exclamation-triangle"/> <t t-esc="error"/>
-                                        </div>
-                                    </t>
-
-                                    <form action="/fire/evacuation/new" method="post">
-                                        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
-
-                                        <div class="form-group">
-                                            <label for="site">Site / Location *</label>
-                                            <input type="text"
-                                                   class="form-control form-control-lg"
-                                                   id="site"
-                                                   name="site"
-                                                   placeholder="Enter site name"
-                                                   required="required"
-                                                   autofocus="autofocus"/>
-                                        </div>
-
-                                        <div class="alert alert-info mt-3">
-                                            <i class="fa fa-info-circle"/>
-                                            This will create an evacuation record and automatically load all people currently at this site.
-                                        </div>
-
-                                        <button type="submit" class="btn btn-danger btn-lg btn-block mt-4">
-                                            <i class="fa fa-exclamation-triangle"/> Start Evacuation
-                                        </button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
+                <section class="d-flex align-items-center justify-content-center" style="min-height: 80vh;">
+                    <div class="text-center">
+                        <i class="fa fa-fire-extinguisher fa-5x text-danger mb-4"/>
+                        <h1 class="mb-4">Fire Evacuation System</h1>
+                        <p class="text-muted mb-5">No active evacuation</p>
+                        <form action="/fire/evacuation/start" method="post">
+                            <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                            <button type="submit" class="btn btn-danger btn-lg px-5 py-3">
+                                <i class="fa fa-exclamation-triangle"/> Start Evacuation
+                            </button>
+                        </form>
                     </div>
                 </section>
             </div>
@@ -56,142 +25,146 @@
     <template id="evacuation_list_template" name="Fire Evacuation List">
         <t t-call="website.layout">
             <div id="wrap" class="oe_structure">
-                <section class="container mt-5">
-                    <div class="row">
+                <section class="container py-4">
+                    <!-- Header -->
+                    <div class="row mb-3">
                         <div class="col-12">
-                            <div class="d-flex justify-content-between align-items-center mb-4">
-                                <div>
-                                    <h1>
+                            <div class="d-flex justify-content-between align-items-center flex-wrap">
+                                <div class="mb-2 mb-md-0">
+                                    <h3 class="mb-1">
                                         <i class="fa fa-fire-extinguisher text-danger"/>
-                                        <t t-esc="evacuation.name"/>
-                                    </h1>
-                                    <p class="text-muted">
-                                        <i class="fa fa-clock-o"/> <t t-esc="evacuation.date"/>
-                                    </p>
+                                        Fire Evacuation
+                                    </h3>
+                                    <small class="text-muted">
+                                        <i class="fa fa-clock-o"/> <t t-esc="evacuation.date.strftime('%d %b %Y %H:%M')"/>
+                                    </small>
                                 </div>
                                 <div>
                                     <a t-attf-href="/fire/evacuation/#{evacuation.id}/reload"
-                                       class="btn btn-warning">
-                                        <i class="fa fa-refresh"/> Reload People
+                                       class="btn btn-warning mr-2">
+                                        <i class="fa fa-refresh"/> Reload
+                                    </a>
+                                    <a t-attf-href="/fire/evacuation/#{evacuation.id}/complete"
+                                       class="btn btn-secondary">
+                                        <i class="fa fa-check"/> Complete
                                     </a>
                                 </div>
                             </div>
+                        </div>
+                    </div>
 
-                            <!-- Summary Stats -->
-                            <div class="row mb-4">
-                                <div class="col-md-4">
-                                    <div class="card text-center">
-                                        <div class="card-body">
-                                            <h2 class="mb-0"><t t-esc="len(lines)"/></h2>
-                                            <p class="text-muted mb-0">Total People</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="card text-center bg-success text-white">
-                                        <div class="card-body">
-                                            <h2 class="mb-0"><t t-esc="len([l for l in lines if l.is_ok])"/></h2>
-                                            <p class="mb-0">Safe</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="card text-center bg-danger text-white">
-                                        <div class="card-body">
-                                            <h2 class="mb-0"><t t-esc="len([l for l in lines if not l.is_ok])"/></h2>
-                                            <p class="mb-0">Pending</p>
-                                        </div>
-                                    </div>
-                                </div>
+                    <!-- Stats Bar - 3 in a row on mobile -->
+                    <div class="row mb-3">
+                        <div class="col-4 px-1">
+                            <div class="alert alert-secondary text-center mb-0 py-4">
+                                <h4 class="mb-1"><t t-esc="len(lines)"/></h4>
+                                <small style="font-size: 0.8rem;">Total</small>
                             </div>
-
-                            <div class="card shadow">
-                                <div class="card-header bg-dark text-white">
-                                    <h4 class="mb-0">
-                                        Evacuation List
-                                    </h4>
-                                </div>
-                                <div class="card-body p-0">
-                                    <t t-if="not lines">
-                                        <div class="p-5 text-center text-muted">
-                                            <i class="fa fa-users fa-3x mb-3"/>
-                                            <p>No people found at this location.</p>
-                                        </div>
-                                    </t>
-                                    <t t-else="">
-                                        <div class="table-responsive">
-                                            <table class="table table-hover mb-0">
-                                                <thead class="thead-light">
-                                                    <tr>
-                                                        <th width="50" class="text-center">Status</th>
-                                                        <th>Name</th>
-                                                        <th>Phone</th>
-                                                        <th>Source</th>
-                                                        <th width="150" class="text-center">Action</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <t t-foreach="lines" t-as="line">
-                                                        <tr t-att-class="'table-success' if line.is_ok else ''">
-                                                            <td class="text-center">
-                                                                <t t-if="line.is_ok">
-                                                                    <i class="fa fa-check-circle fa-2x text-success"/>
-                                                                </t>
-                                                                <t t-else="">
-                                                                    <i class="fa fa-exclamation-circle fa-2x text-danger"/>
-                                                                </t>
-                                                            </td>
-                                                            <td>
-                                                                <strong><t t-esc="line.name"/></strong>
-                                                            </td>
-                                                            <td>
-                                                                <t t-if="line.phone">
-                                                                    <i class="fa fa-phone"/> <t t-esc="line.phone"/>
-                                                                </t>
-                                                                <t t-else="">
-                                                                    <span class="text-muted">-</span>
-                                                                </t>
-                                                            </td>
-                                                            <td>
-                                                                <span class="badge badge-info">
-                                                                    <t t-if="line.res_model == 'reception.visitor'">
-                                                                        <i class="fa fa-user"/> Visitor
-                                                                    </t>
-                                                                    <t t-elif="line.res_model == 'hr.attendance'">
-                                                                        <i class="fa fa-id-badge"/> Employee
-                                                                    </t>
-                                                                    <t t-else="">
-                                                                        <t t-esc="line.res_model"/>
-                                                                    </t>
-                                                                </span>
-                                                            </td>
-                                                            <td class="text-center">
-                                                                <a t-attf-href="/fire/evacuation/#{line.id}/toggle"
-                                                                   t-att-class="'btn btn-md ' + ('btn-danger' if line.is_ok else 'btn-success')">
-                                                                    <t t-if="line.is_ok">
-                                                                        <i class="fa fa-times"/> Evacuated
-                                                                    </t>
-                                                                    <t t-else="">
-                                                                        <i class="fa fa-check"/> Mark OK
-                                                                    </t>
-                                                                </a>
-                                                            </td>
-                                                        </tr>
-                                                    </t>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </t>
-                                </div>
+                        </div>
+                        <div class="col-4 px-1">
+                            <div class="alert alert-success text-center mb-0 py-4">
+                                <h4 class="mb-1"><t t-esc="len([l for l in lines if l.is_ok])"/></h4>
+                                <small style="font-size: 0.8rem;">Safe</small>
                             </div>
-
-                            <div class="mt-4 mb-4">
-                                <a href="/fire/evacuation/new" class="btn btn-secondary">
-                                    <i class="fa fa-arrow-left"/> New Evacuation
-                                </a>
+                        </div>
+                        <div class="col-4 px-1">
+                            <div class="alert alert-danger text-center mb-0 py-4">
+                                <h4 class="mb-1"><t t-esc="len([l for l in lines if not l.is_ok])"/></h4>
+                                <small style="font-size: 0.8rem;">Missing</small>
                             </div>
                         </div>
                     </div>
+
+                    <!-- People Grid -->
+                    <t t-if="not lines">
+                        <div class="text-center py-5">
+                            <i class="fa fa-users fa-4x text-muted mb-3"/>
+                            <p class="text-muted">No people found.</p>
+                        </div>
+                    </t>
+                    <t t-else="">
+                        <div class="row" style="margin-left: -5px; margin-right: -5px;">
+                            <t t-foreach="lines" t-as="line">
+                                <div class="col-6 col-md-4 col-lg-3 mb-2" style="padding-left: 5px; padding-right: 5px;">
+                                    <div t-att-class="'border rounded p-3 text-center h-100 ' + ('bg-light border-success' if line.is_ok else 'bg-white border-danger border-2')"
+                                         style="position: relative;">
+
+                                        <!-- Status Badge -->
+                                        <div style="position: absolute; top: 8px; right: 8px; z-index: 10;">
+                                            <t t-if="line.is_ok">
+                                                <span class="badge badge-success rounded-circle" style="width: 32px; height: 40px; padding: 7px;">
+                                                    <i class="fa fa-check fa-lg"/>
+                                                </span>
+                                            </t>
+                                            <t t-else="">
+                                                <span class="badge badge-danger rounded-circle" style="width: 32px; height: 32px; padding: 7px;">
+                                                    <i class="fa fa-exclamation fa-lg"/>
+                                                </span>
+                                            </t>
+                                        </div>
+
+                                        <!-- Image -->
+                                        <div class="mb-3 mt-2">
+                                            <t t-if="line.image">
+                                                <img t-att-src="'data:image/png;base64,%s' % line.image.decode('utf-8')"
+                                                     class="rounded-circle"
+                                                     style="width: 90px; height: 90px; object-fit: cover; border: 3px solid #ddd;"
+                                                     t-att-alt="line.name"/>
+                                            </t>
+                                            <t t-else="">
+                                                <div class="rounded-circle bg-secondary d-inline-flex align-items-center justify-content-center"
+                                                     style="width: 90px; height: 90px; border: 3px solid #ddd;">
+                                                    <i class="fa fa-user fa-3x text-white"/>
+                                                </div>
+                                            </t>
+                                        </div>
+
+                                        <!-- Name -->
+                                        <div class="mb-3" style="min-height: 38px;">
+                                            <div class="font-weight-bold" style="font-size: 0.9rem; line-height: 1.2;">
+                                                <t t-esc="line.name"/>
+                                            </div>
+                                        </div>
+
+                                        <!-- Phone -->
+                                        <t t-if="line.phone">
+                                            <a t-attf-href="tel:#{line.phone}"
+                                               class="btn btn-sm btn-outline-secondary btn-block mb-3"
+                                               style="font-size: 0.85rem; padding: 6px;">
+                                                <i class="fa fa-phone"/> Call
+                                            </a>
+                                        </t>
+
+                                        <!-- Source Badge -->
+                                        <div class="mb-3">
+                                            <t t-if="line.res_model == 'reception.visitor'">
+                                                <span class="badge badge-info" style="font-size: 0.75rem; padding: 4px 8px;">
+                                                    <i class="fa fa-user"/> Visitor
+                                                </span>
+                                            </t>
+                                            <t t-elif="line.res_model == 'hr.attendance'">
+                                                <span class="badge badge-primary" style="font-size: 0.75rem; padding: 4px 8px;">
+                                                    <i class="fa fa-id-badge"/> Employee
+                                                </span>
+                                            </t>
+                                        </div>
+
+                                        <!-- Action Button -->
+                                        <a t-attf-href="/fire/evacuation/#{line.id}/toggle"
+                                           t-att-class="'btn btn-block font-weight-bold ' + ('btn-danger' if line.is_ok else 'btn-success')"
+                                           style="font-size: 0.9rem; padding: 10px;">
+                                            <t t-if="line.is_ok">
+                                                <i class="fa fa-times"/> Mark as Missing
+                                            </t>
+                                            <t t-else="">
+                                                <i class="fa fa-check"/> Mark as Safe
+                                            </t>
+                                        </a>
+                                    </div>
+                                </div>
+                            </t>
+                        </div>
+                    </t>
                 </section>
             </div>
         </t>

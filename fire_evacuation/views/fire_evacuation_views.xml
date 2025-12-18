@@ -7,6 +7,7 @@
                 <list>
                     <field name="name"/>
                     <field name="date"/>
+                    <field name="state"/>
                 </list>
             </field>
         </record>
@@ -17,11 +18,9 @@
             <field name="arch" type="xml">
                 <form>
                     <header>
-
+                         <field name="state" widget="statusbar" statusbar_visible="ongoing,completed" options="{'clickable': '1'}"/>
                     </header>
                     <sheet>
-<!--                        <field name="active" invisible="1"/>-->
-<!--                        <widget name="web_ribbon" title="Archived" bg_color="text-bg-danger" invisible="active"/>-->
                         <group>
                             <group>
                                 <field name="name" placeholder="Site"/>
@@ -34,6 +33,7 @@
                             <page string="Evacuation List">
                                 <field name="fire_evacuation_ids">
                                     <list>
+                                        <field name="image" widget="image" column_invisible="1"/>
                                         <field name="name"/>
                                         <field name="phone"/>
                                         <field name="resource_ref"/>
