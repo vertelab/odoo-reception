@@ -13,6 +13,7 @@
     'depends': [
         'visitor_management',
         'hr_attendance',
+        'website',
     ],
     'data': [
         'security/ir.model.access.csv',
