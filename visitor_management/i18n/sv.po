@@ -169,7 +169,7 @@ msgstr "Checka in"
 #: model_terms:ir.ui.view,arch_db:visitor_management.reception_visitor_view_form
 #: model_terms:ir.ui.view,arch_db:visitor_management.reception_visitor_view_list
 msgid "Check out"
-msgstr "Kolla upp"
+msgstr "Checka ut"
 
 #. module: visitor_management
 #: model_terms:ir.ui.view,arch_db:visitor_management.reception_visitor_view_list
