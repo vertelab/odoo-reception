@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+fire_evacuation.access_fire_evacuation,access_fire_evacuation,fire_evacuation.model_fire_evacuation,base.group_user,1,1,1,1
+fire_evacuation.access_fire_evacuation_public,access_fire_evacuation_public,fire_evacuation.model_fire_evacuation,base.group_public,1,0,0,0
+fire_evacuation.access_fire_evacuation_line,access_fire_evacuation_line,fire_evacuation.model_fire_evacuation_line,base.group_user,1,1,1,1
+fire_evacuation.access_fire_evacuation_line_public,access_fire_evacuation_line_public,fire_evacuation.model_fire_evacuation_line,base.group_public,1,0,0,0

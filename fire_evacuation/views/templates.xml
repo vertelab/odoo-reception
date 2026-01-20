@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="start_evacuation" name="Start Evacuation">
+        <t t-call="website.layout">
+            <div id="wrap" class="oe_structure">
+                <section class="d-flex align-items-center justify-content-center" style="min-height: 80vh;">
+                    <div class="text-center">
+                        <i class="fa fa-fire-extinguisher fa-5x text-danger mb-4"/>
+                        <h1 class="mb-4">Fire Evacuation System</h1>
+                        <p class="text-muted mb-5">No active evacuation</p>
+                        <form action="/fire/evacuation/start" method="post">
+                            <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                            <button type="submit" class="btn btn-danger btn-lg px-5 py-3">
+                                <i class="fa fa-exclamation-triangle"/> Start Evacuation
+                            </button>
+                        </form>
+                    </div>
+                </section>
+            </div>
+        </t>
+    </template>
+
+    <template id="evacuation_list_template" name="Fire Evacuation List">
+        <t t-call="website.layout">
+            <div id="wrap" class="oe_structure">
+                <section class="container py-4">
+                    <div class="row mb-3">
+                        <div class="col-12">
+                            <div class="d-flex justify-content-between align-items-center flex-wrap">
+                                <div class="mb-2 mb-md-0">
+                                    <h3 class="mb-1">
+                                        <i class="fa fa-fire-extinguisher text-danger"/>
+                                        Fire Evacuation
+                                    </h3>
+                                    <small class="text-muted">
+                                        <i class="fa fa-clock-o"/> <t t-esc="evacuation.date.strftime('%d %b %Y %H:%M')"/>
+                                    </small>
+                                </div>
+                                <div>
+                                    <a t-attf-href="/fire/evacuation/#{evacuation.id}/reload"
+                                       class="btn btn-warning mr-2">
+                                        <i class="fa fa-refresh"/> Reload
+                                    </a>
+                                    <a t-attf-href="/fire/evacuation/#{evacuation.id}/complete"
+                                       class="btn btn-secondary">
+                                        <i class="fa fa-check"/> Complete
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-4 px-1">
+                            <div class="alert alert-secondary text-center mb-0 py-4">
+                                <h4 class="mb-1"><t t-esc="len(lines)"/></h4>
+                                <small style="font-size: 0.8rem;">Total</small>
+                            </div>
+                        </div>
+                        <div class="col-4 px-1">
+                            <div class="alert alert-success text-center mb-0 py-4">
+                                <h4 class="mb-1"><t t-esc="len([l for l in lines if l.is_ok])"/></h4>
+                                <small style="font-size: 0.8rem;">Safe</small>
+                            </div>
+                        </div>
+                        <div class="col-4 px-1">
+                            <div class="alert alert-danger text-center mb-0 py-4">
+                                <h4 class="mb-1"><t t-esc="len([l for l in lines if not l.is_ok])"/></h4>
+                                <small style="font-size: 0.8rem;">Missing</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <t t-if="not lines">
+                        <div class="text-center py-5">
+                            <i class="fa fa-users fa-4x text-muted mb-3"/>
+                            <p class="text-muted">No people found.</p>
+                        </div>
+                    </t>
+                    <t t-else="">
+                        <div class="row" style="margin-left: -5px; margin-right: -5px;">
+                            <t t-foreach="lines" t-as="line">
+                                <div class="col-6 col-md-4 col-lg-3 mb-2" style="padding-left: 5px; padding-right: 5px;">
+                                    <div t-att-class="'border rounded p-3 text-center h-100 ' + ('bg-light border-success' if line.is_ok else 'bg-white border-danger border-2')"
+                                         style="position: relative;">
+
+                                        <div style="position: absolute; top: 8px; right: 8px; z-index: 10;">
+                                            <t t-if="line.is_ok">
+                                                <span class="badge badge-success rounded-circle" style="width: 32px; height: 40px; padding: 7px;">
+                                                    <i class="fa fa-check fa-lg"/>
+                                                </span>
+                                            </t>
+                                            <t t-else="">
+                                                <span class="badge badge-danger rounded-circle" style="width: 32px; height: 32px; padding: 7px;">
+                                                    <i class="fa fa-exclamation fa-lg"/>
+                                                </span>
+                                            </t>
+                                        </div>
+
+                                        <div class="mb-3 mt-2">
+                                            <t t-if="line.image">
+                                                <img t-att-src="'data:image/png;base64,%s' % line.image.decode('utf-8')"
+                                                     class="rounded-circle"
+                                                     style="width: 90px; height: 90px; object-fit: cover; border: 3px solid #ddd;"
+                                                     t-att-alt="line.name"/>
+                                            </t>
+                                            <t t-else="">
+                                                <div class="rounded-circle bg-secondary d-inline-flex align-items-center justify-content-center"
+                                                     style="width: 90px; height: 90px; border: 3px solid #ddd;">
+                                                    <i class="fa fa-user fa-3x text-white"/>
+                                                </div>
+                                            </t>
+                                        </div>
+
+                                        <div class="mb-3" style="min-height: 38px;">
+                                            <div class="font-weight-bold" style="font-size: 0.9rem; line-height: 1.2;">
+                                                <t t-esc="line.name"/>
+                                            </div>
+                                        </div>
+
+                                        <t t-if="line.phone">
+                                            <a t-attf-href="tel:#{line.phone}"
+                                               class="btn btn-sm btn-outline-secondary btn-block mb-3"
+                                               style="font-size: 0.85rem; padding: 6px;">
+                                                <i class="fa fa-phone"/> Call
+                                            </a>
+                                        </t>
+
+                                        <div class="mb-3">
+                                            <t t-if="line.res_model == 'reception.visitor'">
+                                                <span class="badge badge-info" style="font-size: 0.75rem; padding: 4px 8px;">
+                                                    <i class="fa fa-user"/> Visitor
+                                                </span>
+                                            </t>
+                                            <t t-elif="line.res_model == 'hr.attendance'">
+                                                <span class="badge badge-primary" style="font-size: 0.75rem; padding: 4px 8px;">
+                                                    <i class="fa fa-id-badge"/> Employee
+                                                </span>
+                                            </t>
+                                        </div>
+
+                                        <a t-attf-href="/fire/evacuation/#{line.id}/toggle"
+                                           t-att-class="'btn btn-block font-weight-bold ' + ('btn-danger' if line.is_ok else 'btn-success')"
+                                           style="font-size: 0.9rem; padding: 10px;">
+                                            <t t-if="line.is_ok">
+                                                <i class="fa fa-times"/> Mark as Missing
+                                            </t>
+                                            <t t-else="">
+                                                <i class="fa fa-check"/> Mark as Safe
+                                            </t>
+                                        </a>
+                                    </div>
+                                </div>
+                            </t>
+                        </div>
+                    </t>
+                </section>
+            </div>
+        </t>
+    </template>
+</odoo>

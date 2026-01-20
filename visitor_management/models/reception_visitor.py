@@ -38,6 +38,7 @@ class ReceptionVisitor(models.Model):
             self._notify()
         elif vals.get('state') == 'checked_out':
             vals['check_out'] = fields.Datetime.now()
+            # vals['served'] = True
         return super().write(vals)
 
     @api.depends('check_in', 'check_out')
