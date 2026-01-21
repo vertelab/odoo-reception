@@ -33,12 +33,12 @@ class reception(http.Controller):
 
         reception = request.env['reception.reception'].sudo().browse(reception_id)
         
-        return request.render('visitor_management.reception', {
-            'reception': reception,
-            'is_mobile': False,
-            'current_lang': 'en_US',
-        })
-        _logger.warning(f"Rendered {res}")
+        # return request.render('visitor_management.reception', {
+        #     'reception': reception,
+        #     'is_mobile': False,
+        #     'current_lang': 'en_US',
+        # })
+        # _logger.warning(f"Rendered {res}")
         
         
         if not reception.exists() or not self._verify_token(reception, token):
