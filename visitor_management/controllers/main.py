@@ -35,6 +35,8 @@ class reception(http.Controller):
         
         if request.env.uid and not lang:
             lang = request.env.user.lang
+        elif not lang:
+            lang = "sv_SE"
 
         # return request.render('visitor_management.reception', {
         #     'reception': reception,
