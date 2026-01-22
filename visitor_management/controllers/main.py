@@ -28,12 +28,12 @@ class reception(http.Controller):
             return False
 
     @http.route('/kiosk/<int:reception_id>/<string:token>', type='http', auth='public', website=True)
-    def launch_reception(self, reception_id, token, lang='sv_SE'):
+    def launch_reception(self, reception_id, token, lang=False):
         _logger.warning(f"Hello {reception_id} {token}")
 
         reception = request.env['reception.reception'].sudo().browse(reception_id)
         
-        if request.env.uid:
+        if request.env.uid and not lang:
             lang = request.env.user.lang
 
         # return request.render('visitor_management.reception', {
