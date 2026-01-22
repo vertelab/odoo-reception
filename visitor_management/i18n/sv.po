@@ -507,7 +507,7 @@ msgstr "Meddela via SMS"
 #. module: visitor_management
 #: model:ir.model.fields,field_description:visitor_management.field_reception_reception__notify_discuss
 msgid "Notify by discuss"
-msgstr "Meddela genom chatt"
+msgstr "Meddela genom chatten"
 
 #. module: visitor_management
 #: model:ir.model.fields,field_description:visitor_management.field_reception_reception__notify_email
