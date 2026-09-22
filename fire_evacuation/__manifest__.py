@@ -6,6 +6,7 @@
     'description': 'Fire Evacuation',
     'summary': 'Fire Evacuation system',
     'author': 'Vertel AB',
+    'website': 'https://vertel.se/apps/odoo-reception/fire_evacuation',
     'installable': True,
     'application': True,
     'license': 'AGPL-3',

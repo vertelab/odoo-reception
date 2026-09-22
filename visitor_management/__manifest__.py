@@ -6,6 +6,7 @@
     'description': 'A visitor management system that streamlines guest check-ins and check-outs while instantly notifying hosts.',
     'summary': 'Visitor management system',
     'author': 'Vertel AB',
+    'website': 'https://vertel.se/apps/odoo-reception/visitor_management',
     'installable': True,
     'application': True,
     'license': 'AGPL-3',
