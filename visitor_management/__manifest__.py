@@ -4,13 +4,25 @@
     'name': 'Visitor Management',
     'category': 'Human Resources/reception',
     'description': 'A visitor management system that streamlines guest check-ins and check-outs while instantly notifying hosts.',
-    'summary': 'Visitor management system',
+    'summary': 'Visitor management system.',
+    'description': '''
+Visitor Management
+==================
+
+    Visitor management system.
+
+    Features:
+
+        - Web integration: Exposes HTTP endpoints for external systems.
+        - UI Integration: Extends 6 view(s) in the Odoo interface.
+        - Extends Odoo: Builds on mail.template, partner_id, reception.reception, reception.visitor.
+    ''',
     'author': 'Vertel AB',
     'website': 'https://vertel.se/apps/odoo-reception/visitor_management',
     'installable': True,
     'application': True,
     'license': 'AGPL-3',
-    'version': '1.0',
+    'version': '18.0.1.0.0',
     'depends': [
         'hr',
         'sms',
